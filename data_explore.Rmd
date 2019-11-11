@@ -51,7 +51,11 @@ weather_check %>%
 ```
 
 
-
+```{r}
+weather_check %>% 
+  ggplot()+
+  geom_bar(aes(x=age, fill=weather_source), position = "fill")
+```
 
 
 
