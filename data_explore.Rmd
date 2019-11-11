@@ -4,3 +4,27 @@ output: html_document : keep_md : yes
 ---
 
 Welcome to the group project!
+
+```{r, message=FALSE}
+library(fivethirtyeight)
+library(tidyverse)
+```
+
+```{r}
+steak_survey %>% 
+  ggplot()+
+  geom_bar(aes(x=steak_prep, fill=smoke), position = "fill")
+```
+
+```{r}
+steak_survey %>% 
+  ggplot()+
+  geom_bar(aes(x=steak_prep, fill=region), position = "fill")
+```
+
+```{r}
+steak_survey %>% 
+  ggplot()+
+  geom_bar(aes(x=steak_prep, fill=cheated), position = "fill")
+```
+
