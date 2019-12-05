@@ -47,7 +47,7 @@ tidy(risk_model)
 We took factors that correlated to risk such as smoking and gambling to see if these factors had any correlation to cheating. Sadly, the p-value for all the variables are greater than .05 meaning they are statistically insignificant.
 
 ```{r}
-region_model <- lm(cheated ~ age, data=steak_survey)
+age_model <- lm(cheated ~ age, data=steak_survey)
 tidy(region_model)
 ```
 
