@@ -54,4 +54,14 @@ tidy(age_model)
 
 This model examines whether a person's age had any factor on determining whether a person cheated. This model shows that the youngest and oldest age groups showed the highest level of cheating comapred to middle aged people. The coefficients represents the average increase and decrease in probability that a certain age group had to cheat compared to the youngest age group.
 
+For the variables whose p-value were less than .05, I computed the confidence intervals for the age.Q and age.C coefficient. For the age.Q coefficient, the confidence interval is -0.07392683	+ 2*0.03334453 and -0.07392683 - 2*0.03334453 or -0.00723777 and -0.1406159. This confidence interval is quite large considering the scope of the model. The age.C coefficient shows similar results as the confidence interval is between 0.122859 and -0.00696507. Although, there may be some correlation within the data, the sample size of the study combined with the low reliability of the model coefficient allows us to conclude that there is essentially no concrete factors that increase a person's likelyhood to cheat.
+
+
+
+
+
+
+
+
+
 
