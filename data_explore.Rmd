@@ -14,55 +14,45 @@ library(tidyverse)
 library(ggmosaic)
 ```
 
-```{r}
-steak_survey %>% 
-  ggplot()+
-  geom_bar(aes(x=steak_prep, fill=smoke), position = "fill")
-```
+Research Question: What factors increase a person's likelyhood to cheat? This comes from a survey about how people like their steak done however because of how the study was conducted, each variable can be treated as the response variable so we are treating the cheated variable as the response variable. It was collected through a random anonymous survey with various random questions. We hope to be able to predict some factors that would increase a person's chance at cheating.
 
 ```{r}
 steak_survey %>% 
   ggplot()+
-  geom_bar(aes(x=steak_prep, fill=region), position = "fill")
+  geom_bar(aes(x=cheated, fill=smoke), position = "fill")
 ```
+
+People who said they cheated also had a higher likelyhood to also smoke.
 
 ```{r}
 steak_survey %>% 
   ggplot()+
-  geom_bar(aes(x=steak_prep, fill=cheated), position = "fill")
+  geom_bar(aes(x=cheated, fill=region), position = "fill")
 ```
 
-
-
-```{r}
-weather_check %>%
-  ggplot() +
-  geom_count(aes(x = ck_weather, y = hhold_income), color = "cornflowerblue")
-```
-
+There was a statistically significant difference between the proportion of people who cheated and who didn't in the West North Central and Middle Atlantic showing these regions may have more cheaters whereas the Pacific had a smaller proportion of cheaters compared to non-cheaters.
 
 ```{r}
-weather_check %>%
-  ggplot() +
-  geom_mosaic(aes(x = product(factor(age),ck_weather), fill = factor(age)))
-```
-
-```{r}
-weather_check %>%
-  ggplot() +
-  geom_mosaic(aes(x = product(factor(hhold_income),ck_weather), fill = factor(hhold_income)))
-```
-
-
-```{r}
-weather_check %>% 
+steak_survey %>% 
   ggplot()+
-  geom_bar(aes(x=age, fill=weather_source), position = "fill")
+  geom_bar(aes(x=cheated, fill=female), position = "fill")
 ```
 
+There was a larger proportion of females who did not cheat.
 
+```{r}
+risk_model <- lm(cheated ~ lottery_a + smoke + alcohol + gamble + skydiving + speed, data=steak_survey)
+tidy(risk_model)
+```
 
+We took factors that correlated to risk such as smoking and gambling to see if these factors had any correlation to cheating. Sadly, the p-value for all the variables are greater than .05 meaning they are statistically insignificant.
 
+```{r}
+age_model <- lm(cheated ~ age, data=steak_survey)
+tidy(region_model)
+```
+
+This model examines whether a person's age had any factor on determining whether a person cheated. This model shows that the youngest and oldest age groups showed the highest level of cheating comapred to middle aged people.
 
 
 
