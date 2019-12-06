@@ -11,6 +11,7 @@ Welcome to the group project!
 library(fivethirtyeight)
 library(tidyverse)
 library(ggmosaic)
+library(broom)
 ```
 
 Research Question: What factors increase a person's likelyhood to cheat? This comes from a survey about how people like their steak done however because of how the study was conducted, each variable can be treated as the response variable so we are treating the cheated variable as the response variable. It was collected through a random anonymous survey with various random questions. We hope to be able to predict some factors that would increase a person's chance at cheating.
@@ -48,7 +49,7 @@ We took factors that correlated to risk such as smoking and gambling to see if t
 
 ```{r}
 age_model <- lm(cheated ~ age, data=steak_survey)
-tidy(region_model)
+tidy(age_model)
 ```
 
 This model examines whether a person's age had any factor on determining whether a person cheated. This model shows that the youngest and oldest age groups showed the highest level of cheating comapred to middle aged people.
