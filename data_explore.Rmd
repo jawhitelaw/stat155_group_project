@@ -54,4 +54,3 @@ tidy(age_model)
 This model examines whether a person's age had any factor on determining whether a person cheated. This model shows that the youngest and oldest age groups showed the highest level of cheating comapred to middle aged people. The coefficients represents the average increase and decrease in probability that a certain age group had to cheat compared to the youngest age group.
 
 
-
