@@ -20,5 +20,32 @@ library(broom)
 ```{r}
 steak_survey %>%
   ggplot() +
-  geom_bar(aes(x = hhold_income, fill = cheated), position = "fill")
+  geom_bar(aes(x = steak, fill = gamble), position = "fill")
 ```
+
+```{r}
+stuff <- glm(gamble ~ steak, data = steak_survey)
+tidy(stuff)
+```
+
+
+
+```{r}
+steak_survey %>%
+  ggplot() +
+  geom_bar(aes(x = speed, fill = gamble), position = "fill")
+```
+
+
+```{r}
+steak_survey %>%
+  ggplot() +
+  geom_bar(aes(x = female, fill = gamble), position = "fill")
+```
+
+```{r}
+steak_survey %>%
+  ggplot() +
+  geom_bar(aes(x = alcohol, fill = gamble), position = "fill")
+```
+
