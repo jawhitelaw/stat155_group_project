@@ -1,0 +1,24 @@
+---
+title: "random stats stuff"
+author: "Tommy Navarre"
+date: "12/17/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE}
+library(fivethirtyeight)
+library(tidyverse)
+library(ggmosaic)
+library(broom)
+```
+
+
+```{r}
+steak_survey %>%
+  ggplot() +
+  geom_bar(aes(x = hhold_income, fill = cheated), position = "fill")
+```
