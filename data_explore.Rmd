@@ -1,14 +1,12 @@
 ---
-title: "GitHub for collaboration"
+title: "Gambling in America"
 output:
   html_document:
     keep_md: yes
   'html_document : keep_md : yes': default
 ---
 
-Welcome to the group project!
-
-```{r, message=FALSE}
+```{r, message=FALSE, echo=FALSE}
 library(fivethirtyeight)
 library(tidyverse)
 library(ggmosaic)
@@ -16,6 +14,13 @@ library(broom)
 ```
 
 Research Question: What factors increase a person's likelyhood to cheat? This comes from a survey about how people like their steak done however because of how the study was conducted, each variable can be treated as the response variable so we are treating the cheated variable as the response variable. It was collected through a random anonymous survey with various random questions. We hope to be able to predict some factors that would increase a person's chance at cheating.
+
+```{r}
+steak_survey %>% 
+  ggplot()+
+  geom_bar(aes(x = cheated))
+```
+
 ```{r}
 steak_survey %>% 
   ggplot()+
@@ -41,14 +46,19 @@ steak_survey %>%
 There was a larger proportion of females who did not cheat.
 
 ```{r}
-risk_model <- lm(cheated ~ lottery_a + smoke + alcohol + gamble + skydiving + speed, data=steak_survey)
+risk_model <- glm(gamble ~ alcohol, data=steak_survey ,family = binomial(link = "logit"))
+tidy(risk_model)
+```
+
+```{r}
+risk_model <- glm(gamble ~ speed, data=steak_survey ,family = binomial(link = "logit"))
 tidy(risk_model)
 ```
 
 We took factors that correlated to risk such as smoking and gambling to see if these factors had any correlation to cheating. Sadly, the p-value for all the variables are greater than .05 meaning they are statistically insignificant.
 
 ```{r}
-age_model <- lm(cheated ~ age, data=steak_survey)
+age_model <- glm(gamble ~ female, data=steak_survey, family = binomial(link = "logit"))
 tidy(age_model)
 ```
 
